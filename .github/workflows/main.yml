@@ -3,17 +3,20 @@ on: [push]
 
 jobs:
   hello_world_job:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+    matrix:
+      os: [ubuntu-latest, macos-latest, windows-latest]
     name: Hello Action
     steps:
       # To use this repository's private action, you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
       - name: Hello world action step
-        uses: ULL-ESIT-PL-1920/hello-world-javascript-action@v1
+        uses: ULL-ESIT-PL-2021/hello-js-action-alu0101244587@v1.1
         id: hello
         with:
-          who-to-greet: 'Procesadores de Lenguajes at ULL'
+          who-to-greet: 'Hello Action for Procesadores de Lenguajes'
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
