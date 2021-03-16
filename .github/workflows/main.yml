@@ -10,10 +10,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Hello world action step
-        uses: ULL-ESIT-PL-2021/hello-js-action-alu0101244587@v1.1
+        uses: ULL-ESIT-PL-2021/hello-js-action-alu0101244587@v1.0.1
         id: hello
         with:
-          who-to-greet: 'Hello Action for Procesadores de Lenguajes'
+          who-to-greet: 'Action for Procesadores de Lenguajes'
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
